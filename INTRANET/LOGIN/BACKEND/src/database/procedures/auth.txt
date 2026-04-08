@@ -1,0 +1,97 @@
+CREATE PROCEDURE SP_SEG_LoginUsuario
+  @rutOrEmail VARCHAR(100),
+  @password VARCHAR(100)
+AS
+BEGIN
+  SELECT TOP 1 *
+  FROM TBL_SEG_Usuarios
+  WHERE (Correo = @rutOrEmail OR RUT = @rutOrEmail)
+    AND Clave = @password
+    AND (Bloqueado IS NULL OR Bloqueado = 0);
+END
+GO
+
+CREATE PROCEDURE SP_SEG_RegistrarSesion
+  @usuario VARCHAR(100),
+  @sesionId VARCHAR(100),
+  @estado VARCHAR(50)
+AS
+BEGIN
+  INSERT INTO TBL_SEG_Sesion (Usuario, Sesion_ID, Estado_Sesion, Fecha_Creacion)
+  VALUES (@usuario, @sesionId, @estado, GETDATE());
+END
+GO
+
+CREATE PROCEDURE [dbo].[SP_SEG_ResetIntentos]
+  @Usuario VARCHAR(100)
+AS
+BEGIN
+  SET NOCOUNT ON;
+
+  UPDATE TBL_SEG_Usuarios
+  SET 
+    Intentos = 0,
+    Bloqueado = 0,
+    UltimoLogin = GETDATE()
+  WHERE Correo = @Usuario OR RUT = @Usuario;
+END
+GO
+
+CREATE PROCEDURE [dbo].[SP_SEG_BloquearUsuario]
+  @Usuario VARCHAR(100)
+AS
+BEGIN
+  SET NOCOUNT ON;
+
+  UPDATE TBL_SEG_Usuarios
+  SET 
+    Bloqueado = 1,
+    Intentos = 0
+  WHERE Correo = @Usuario OR RUT = @Usuario;
+
+  INSERT INTO TBL_SEG_LOG_Accesos
+  (Usuario, Intento, Existe, Estado_Acceso, IP_Origen, Fecha_Intento)
+  VALUES
+  (
+    @Usuario,
+    3,
+    'SI',
+    'USUARIO BLOQUEADO',
+    'sistema',
+    GETDATE()
+  );
+END
+GO
+
+
+
+# cambiar src/services/auth.services.ts auth
+
+import jwt from "jsonwebtoken";
+import { spLoginUsuario, spRegistrarSesion, spRegistrarLogAcceso } from "../database/procedures/auth.proc";
+
+export const authenticateUser = async (rutOrEmail: string, password: string) => {
+  const result = await spLoginUsuario(rutOrEmail, password);
+  return result.length ? result[0] : null;
+};
+
+export const registerLoginSession = async (usuario: string, token: string) => {
+  await spRegistrarSesion(usuario, token, "ACTIVA");
+};
+
+export const logAccessAttempt = async (usuario: string, intento: number, estado: string, ip: string) => {
+  await spRegistrarLogAcceso(usuario, intento, estado, ip);
+};
+
+export const generateToken = (userId: string) => {
+  const secret = process.env.JWT_SECRET || "secretKey";
+  return jwt.sign({ userId }, secret, { expiresIn: "5m" });
+};
+
+export const spBloquearUsuario = async (usuario: string) => {
+  return await execSP("SP_SEG_BloquearUsuario", { Usuario: usuario });
+};
+
+export const spResetIntentos = async (usuario: string) => {
+  return await execSP("SP_SEG_ResetIntentos", { Usuario: usuario });
+};
