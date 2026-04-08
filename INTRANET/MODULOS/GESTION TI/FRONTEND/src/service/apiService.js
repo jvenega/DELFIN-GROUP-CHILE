@@ -1,8 +1,20 @@
-const BASE_URL = "http://192.168.100.49:3004/api";
+// ==============================
+// CONFIG DESDE .ENV
+// ==============================
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const CACHE_TTL =
+  Number(import.meta.env.VITE_CACHE_TTL) || 5 * 60 * 1000;
+const DEFAULT_TIMEOUT =
+  Number(import.meta.env.VITE_TIMEOUT) || 10000;
 
-const CACHE_TTL = 5 * 60 * 1000;
-const DEFAULT_TIMEOUT = 10000;
+// Validación crítica
+if (!BASE_URL) {
+  throw new Error("VITE_API_BASE_URL no está definido en el .env");
+}
 
+// ==============================
+// CACHE EN MEMORIA
+// ==============================
 const cache = {};
 
 // ==============================
@@ -69,7 +81,6 @@ async function fetchData(endpoint, options = {}) {
     }
 
     return json.data;
-
   } catch (error) {
     if (error.name === "AbortError") {
       console.error(`Timeout en ${endpoint}`);
@@ -88,13 +99,20 @@ const get = (endpoint, options) =>
   fetchData(endpoint, { ...options, method: "GET" });
 
 const post = (endpoint, body, options) =>
-  fetchData(endpoint, { ...options, method: "POST", body, useCache: false });
+  fetchData(endpoint, {
+    ...options,
+    method: "POST",
+    body,
+    useCache: false,
+  });
 
 const put = (endpoint, body, options) =>
-  fetchData(endpoint, { ...options, method: "PUT", body, useCache: false });
-
-// const del = (endpoint, options) =>
-//   fetchData(endpoint, { ...options, method: "DELETE", useCache: false });
+  fetchData(endpoint, {
+    ...options,
+    method: "PUT",
+    body,
+    useCache: false,
+  });
 
 // ==============================
 // UTILIDAD QUERY PARAMS
@@ -126,11 +144,12 @@ export const api = {
     get(`articulos${buildQuery(filters)}`),
 
   createArticulo: (data) => post("articulos", data),
+
   updateArticulo: (serie, data) =>
     put(`articulos/${serie}`, data),
 
   // ==========================
-  // MOVIMIENTOS (SOLO INSERT)
+  // MOVIMIENTOS
   // ==========================
   createMovimiento: (data) =>
     post("movimientos", data),
@@ -145,7 +164,7 @@ export const api = {
     post("personas", data),
 
   // ==========================
-  // ESTADOS (CRUD EJEMPLO)
+  // ESTADOS (CRUD)
   // ==========================
   createEstado: (data) =>
     post("estados", data),
@@ -153,15 +172,12 @@ export const api = {
   updateEstado: (id, data) =>
     put(`estados/${id}`, data),
 
-  // =============================
-  // PROVEEDORES (CRUD EJEMPLO)
-  // =============================
+  // ==========================
+  // PROVEEDORES
+  // ==========================
   createProveedor: (data) =>
     post("proveedores", data),
-
 };
-
-
 
 // ==============================
 // UTILIDADES CACHE
