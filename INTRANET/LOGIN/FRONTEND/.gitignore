@@ -1,0 +1,15 @@
+# Dependencias
+node_modules/
+
+# Build de Vite
+dist/
+
+# Cache Vite
+.vite/
+
+# Archivos de entorno
+.env
+.env.*
+
+# Archivos temporales
+*.local
