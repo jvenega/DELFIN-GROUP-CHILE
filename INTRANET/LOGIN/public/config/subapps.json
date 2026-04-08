@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "apps": [
+    {
+      "id": "reservas-activas",
+      "path": "/reservas-activas",
+      "name": "Reservas Activas",
+      "icon": "ShipIcon",
+      "origin": "http://192.168.100.46:3002",
+      "roles": ["ADMIN", "SOPORTE TI"],
+      "menuOrder": 1
+    },
+    {
+      "id": "bitacora-tareas",
+      "path": "/bitacora-tareas",
+      "name": "Bitacora de Tareas TI",
+      "icon": "FileKey",
+      "origin": "https://grupo-delfin.cl/bitacora-tareas",
+      "roles": ["SOPORTE TI"],
+      "menuOrder": 2
+    },
+    {
+      "id":"estado-cuentas",
+      "path": "/estado-cuentas",
+      "name": "Estado de Cuentas",
+      "icon": "DollarSign",
+      "origin": "http://localhost:3000/intranet/estado-cuentas",
+      "roles": ["ADMIN", "SOPORTE TI","TESTING"],
+      "menuOrder": 3
+    },
+    {
+      "id":"mantenedor-ti",
+      "path": "/mantenedor-ti",
+      "name": "Mantenedor TI",
+      "icon": "Settings",
+      "origin": "http://localhost:5174/",
+      "roles": ["SOPORTE TI"],
+      "menuOrder": 4
+
+    }
+
+  ]
+}

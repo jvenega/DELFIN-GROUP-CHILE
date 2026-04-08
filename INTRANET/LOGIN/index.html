@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es" class="h-full antialiased">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- ===================================================== -->
+  <!-- VIEWPORT -->
+  <!-- ===================================================== -->
+  <!-- viewport-fit=cover permite usar toda la pantalla en móviles -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+
+  <!-- ===================================================== -->
+  <!-- SEO BASICO -->
+  <!-- ===================================================== -->
+
+  <title>Intranet · Delfin Group Chile</title>
+
+  <meta name="description"
+        content="Intranet corporativa de Delfin Group Chile · Panel administrativo" />
+
+  <!-- ===================================================== -->
+  <!-- PWA -->
+  <!-- ===================================================== -->
+
+  <!-- Manifest para instalar la app -->
+  <link rel="manifest" href="/intranet/manifest.webmanifest" />
+
+  <!-- Color del navegador en móviles -->
+  <meta name="theme-color" content="#0F172A" />
+
+  <!-- ===================================================== -->
+  <!-- FAVICONS -->
+  <!-- ===================================================== -->
+
+  <!-- Favicon estándar -->
+  <link rel="icon" type="image/png" sizes="32x32"
+        href="/icons/favicon-32x32.png" />
+
+  <link rel="icon" type="image/png" sizes="16x16"
+        href="/icons/favicon-16x16.png" />
+
+  <!-- Apple -->
+  <link rel="apple-touch-icon" sizes="180x180"
+        href="/icons/apple-touch-icon.png" />
+
+  <!-- Android -->
+  <link rel="icon" type="image/png" sizes="192x192"
+        href="/icons/android-chrome-192x192.png" />
+
+  <link rel="icon" type="image/png" sizes="512x512"
+        href="/icons/android-chrome-512x512.png" />
+
+  <!-- ===================================================== -->
+  <!-- OPEN GRAPH (Compartir en Teams / WhatsApp / etc) -->
+  <!-- ===================================================== -->
+
+  <meta property="og:title" content="Delfin Group Chile · Intranet" />
+  <meta property="og:description"
+        content="Panel administrativo y monitoreo operacional." />
+
+  <meta property="og:type" content="website" />
+
+  <meta property="og:image"
+        content="/icons/android-chrome-512x512.png" />
+
+  <!-- ===================================================== -->
+  <!-- PERFORMANCE -->
+  <!-- ===================================================== -->
+
+  <!-- Preconexión a Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin />
+
+  <!-- DNS Prefetch PowerBI -->
+  <link rel="dns-prefetch"
+        href="https://app.powerbi.com" />
+
+  <!-- ===================================================== -->
+  <!-- PRECARGA DE IMAGEN DEL LOGIN (MUY IMPORTANTE) -->
+  <!-- ===================================================== -->
+
+  
+
+  <!-- ===================================================== -->
+  <!-- GOOGLE FONT -->
+  <!-- ===================================================== -->
+
+  <!-- display=swap evita bloquear render -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+</head>
+
+<body class="h-full bg-slate-100 text-slate-800 antialiased">
+
+  <!-- ===================================================== -->
+  <!-- ROOT REACT -->
+  <!-- ===================================================== -->
+  <div id="root"></div>
+
+  <!-- ===================================================== -->
+  <!-- ENTRYPOINT VITE -->
+  <!-- ===================================================== -->
+  <script type="module" src="/src/main.jsx"></script>
+
+</body>
+</html>

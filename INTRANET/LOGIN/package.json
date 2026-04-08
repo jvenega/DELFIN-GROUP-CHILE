@@ -1,0 +1,42 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "1.5.3",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "prod": "vite build && vite preview",
+    "build": "vite build",
+    "lint": "eslint .",
+    "generate:icons": "node scripts/generate-favicons.js",
+    "prebuild": "node scripts/generate-favicons.js",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "@tanstack/react-query": "^5.90.9",
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.553.0",
+    "react": "^19.2.0",
+    "react-activation": "^0.13.4",
+    "react-dom": "^19.2.0",
+    "react-hot-toast": "^2.6.0",
+    "react-router-dom": "^7.9.5",
+    "recharts": "^3.4.1",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.1.17",
+    "vite-plugin-pwa": "^1.2.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "vite": "8.0.2"
+  }
+}
