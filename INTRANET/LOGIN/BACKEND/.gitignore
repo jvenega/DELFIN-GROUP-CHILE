@@ -1,0 +1,14 @@
+# Dependencias locales (por si manejas node_modules separados)
+node_modules/
+
+# Archivos temporales
+tmp/
+temp/
+
+# Logs específicos
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Variables sensibles
+.env
