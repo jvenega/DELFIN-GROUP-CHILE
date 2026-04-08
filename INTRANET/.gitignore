@@ -9,7 +9,7 @@ logs/
 # Dependencias
 node_modules/
 
-# Build
+# Build general
 dist/
 build/
 
