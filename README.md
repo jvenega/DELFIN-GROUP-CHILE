@@ -8,25 +8,6 @@ Su objetivo es mantener una base organizada, escalable y reutilizable de solucio
 
 ---
 
-## 🧩 Estructura del Proyecto
-
-```bash
-INTRANET/
-  LOGIN/
-    BACKEND/
-    FRONTEND/
-  MODULOS/
-    GESTION_TI/
-      BACKEND/
-      FRONTEND/
-```
-
-* **BACKEND**: Servicios, APIs y lógica de negocio (Node.js)
-* **FRONTEND**: Interfaces de usuario (React + Vite)
-* **MODULOS**: Funcionalidades específicas por área o sistema
-
----
-
 ## ⚙️ Tecnologías Utilizadas
 
 ### Frontend
@@ -42,25 +23,6 @@ INTRANET/
 
 ---
 
-## 🚀 Instalación y Ejecución
-
-### Backend
-
-```bash
-cd BACKEND
-npm install
-npm run dev
-```
-
-### Frontend
-
-```bash
-cd FRONTEND
-npm install
-npm run dev
-```
-
----
 
 ## 📁 Buenas Prácticas
 
@@ -76,7 +38,7 @@ npm run dev
 Todo el código contenido en este repositorio ha sido desarrollado por el autor como parte de sus funciones o colaboraciones con **Delfin Group Chile**.
 
 > ⚠️ **Importante:**
-> Aunque la autoría del código corresponde al desarrollador, al momento de cesar la relación laboral o contractual, todos los desarrollos, implementaciones y activos contenidos en este repositorio pasan a ser propiedad exclusiva de **Delfin Group Chile**, salvo acuerdo explícito en contrario.
+> Aunque la autoría del código corresponde al desarrollador **jvenega**, al momento de cesar la relación laboral o contractual, todos los desarrollos, implementaciones y activos contenidos en este repositorio pasan a ser propiedad exclusiva de **Delfin Group Chile**, salvo acuerdo explícito en el contrato firmado por ambas partes.
 
 Se prohíbe el uso, distribución o reutilización de este código fuera del contexto de la empresa sin autorización previa.
 
@@ -85,7 +47,7 @@ Se prohíbe el uso, distribución o reutilización de este código fuera del con
 ## 👤 Autor
 
 Desarrollado por:
-**Pheonix Zero**
+**jvenega**
 
 ---
 
