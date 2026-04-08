@@ -1,0 +1,22 @@
+# Logs
+*.log
+logs/
+
+# Entorno
+.env
+.env.*
+
+# Dependencias
+node_modules/
+
+# Build
+dist/
+build/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
