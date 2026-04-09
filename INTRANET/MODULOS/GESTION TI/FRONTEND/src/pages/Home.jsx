@@ -6,11 +6,10 @@ import {
   Package,
   LayoutDashboard,
   Boxes,
-  Activity,
+  Truck,
   Users,
 } from "lucide-react";
 
-import Stats from "../components/home/Stats";
 import MovimientoModal from "../components/home/MovimientoModal";
 import AsignarArticuloModal from "../components/home/AsignarArticuloModal";
 import ArticuloModal from "../components/home/ArticuloModal";
@@ -44,9 +43,8 @@ export default function Home() {
 
         {/* TOAST */}
         {toast && (
-          <div className={`fixed top-5 right-5 px-4 py-2 rounded-lg shadow-lg text-white z-50 ${
-            toast.type === "error" ? "bg-red-500" : "bg-green-600"
-          }`}>
+          <div className={`fixed top-5 right-5 px-4 py-2 rounded-lg shadow-lg text-white z-50 ${toast.type === "error" ? "bg-red-500" : "bg-green-600"
+            }`}>
             {toast.message}
           </div>
         )}
@@ -60,17 +58,16 @@ export default function Home() {
                 <div className="p-2 bg-blue-100 rounded-lg">
                   <LayoutDashboard className="w-5 h-5 text-blue-600" />
                 </div>
-                <span className="text-xs sm:text-sm font-medium text-blue-700">
-                  Gestión TI
-                </span>
+                <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800">
+                  Gestión de Activos TI
+                </h1>
               </div>
+               
+              
 
-              <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800">
-                Panel Principal
-              </h1>
 
               <p className="mt-2 text-sm sm:text-base lg:text-lg text-gray-500 max-w-xl">
-                Control centralizado de artículos, asignaciones y movimientos del módulo TI.
+                Control centralizado de artículos, asignaciones y movimientos del area TI.
               </p>
 
               {/* BOTONES */}
@@ -133,27 +130,27 @@ export default function Home() {
             </div>
           </div>
 
-          {/* MOVIMIENTOS */}
+          {/* PROVEEDORES */}
           <div
-            onClick={() => navigate("/movimientos")}
+            onClick={() => navigate("/proveedores")}
             className="bg-white p-5 rounded-xl border hover:shadow active:scale-[0.98] transition cursor-pointer group flex items-center gap-4"
           >
             <div className="p-3 bg-blue-100 rounded-lg">
-              <Activity className="w-5 h-5 text-blue-600" />
+              <Truck className="w-5 h-5 text-blue-600" />
             </div>
             <div>
               <p className="text-xs text-gray-500 group-hover:text-blue-600">
-                Movimientos
+                Proveedores
               </p>
               <p className="text-base font-semibold">
-                Ver Movimientos
+                Ver Proveedores
               </p>
             </div>
           </div>
 
-          {/* ASIGNACIONES */}
+          {/* MODELOS */}
           <div
-            onClick={() => navigate("/articulos")}
+            onClick={() => navigate("/modelo")}
             className="bg-white p-5 rounded-xl border hover:shadow active:scale-[0.98] transition cursor-pointer group flex items-center gap-4"
           >
             <div className="p-3 bg-green-100 rounded-lg">
@@ -161,10 +158,10 @@ export default function Home() {
             </div>
             <div>
               <p className="text-xs text-gray-500 group-hover:text-green-600">
-                Asignaciones
+                Modelos
               </p>
               <p className="text-base font-semibold">
-                Ver Asignaciones
+                Ver Modelos
               </p>
             </div>
           </div>
