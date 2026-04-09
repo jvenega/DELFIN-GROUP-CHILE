@@ -10,7 +10,6 @@ import {
   Users,
 } from "lucide-react";
 
-import MovimientoModal from "../components/home/MovimientoModal";
 import AsignarArticuloModal from "../components/home/AsignarArticuloModal";
 import ArticuloModal from "../components/home/ArticuloModal";
 import hero from "../assets/data-work.svg";
@@ -74,7 +73,7 @@ export default function Home() {
               <div className="mt-6 flex flex-col sm:flex-row flex-wrap gap-2">
                 <button
                   onClick={() => openModal("articulo")}
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto min-w-40 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition shadow-md"
+                  className="flex items-center justify-center gap-2 w-full sm:w-auto min-w-40 bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition shadow-md cursor-pointer"
                 >
                   <Package className="w-4 h-4" />
                   Nuevo Artículo
@@ -82,19 +81,13 @@ export default function Home() {
 
                 <button
                   onClick={() => openModal("asignar")}
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto min-w-40 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
+                  className="flex items-center justify-center gap-2 w-full sm:w-auto min-w-40 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition cursor-pointer shadow-md"
                 >
                   <UserPlus className="w-4 h-4" />
                   Asignar
                 </button>
 
-                <button
-                  onClick={() => openModal("movimiento")}
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto min-w-40 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-                >
-                  <Plus className="w-4 h-4" />
-                  Movimiento
-                </button>
+                
               </div>
             </div>
 
@@ -170,14 +163,7 @@ export default function Home() {
 
 
         {/* MODALES */}
-        <MovimientoModal
-          open={modal === "movimiento"}
-          onClose={closeModal}
-          setLoadingGlobal={setLoadingGlobal}
-          onSuccess={() => showToast("Movimiento registrado")}
-          onError={() => showToast("Error al registrar movimiento", "error")}
-        />
-
+       
         <AsignarArticuloModal
           open={modal === "asignar"}
           onClose={closeModal}
